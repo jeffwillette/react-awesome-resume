@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "import/first": "off",
+    "react/jsx-filename-extension": "off",
+    "arrow-body-style": "off",
+    "jsx-a11y/href-no-hash": "off"
+  }
+}
