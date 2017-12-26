@@ -48,7 +48,7 @@ import 'semantic-ui-css/semantic.min.css';
 const myJSONResume = {//...jsonResume}
 
 ReactDOM.render(
-  <Resume person={myJSONResume} theme="default" />,
+  <Resume jsonResume={myJSONResume} theme="default" />,
   document.getElementById("root")
 );
 ```
@@ -58,3 +58,12 @@ ReactDOM.render(
  - subtitles need to be changed for small screen renders
  - update to react 16 when a release occurs for semantic-ui
  - add API requests to main page from twitter / medium / github
+
+### DEPLOY NOTES:
+
+  1. build and commit a new version, test in development
+  2. make a production build of the component and the project that imports it, test
+  3. build the project and deploy it to deltaskelta.github.io/react-awesome-resume-demo,
+     test it
+  4. `yarn publish`
+  5. push deltaskelta.github.io
