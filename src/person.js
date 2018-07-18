@@ -20,7 +20,7 @@ export const person = {
       {
         network: 'GitHub',
         username: 'deltaskelta',
-        url: 'https://www.github.com.com/deltaskelta',
+        url: 'https://www.github.com/deltaskelta',
       },
       {
         network: 'Twitter',
@@ -255,7 +255,7 @@ export const person = {
     },
     {
       name: 'Jian Yang',
-      reference: "Erlich Bachman...This is you as and old man. I'm ugly and I'm dead. Alone",
+      reference: "Erlich Bachman...This is you as an old man. I'm ugly and I'm dead. Alone",
     },
     {
       name: 'CJ Cantwell',
