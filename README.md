@@ -1,6 +1,6 @@
 ### React Awesome Resume
 
-#### [DEMO](https://deltaskelta.github.io/react-awesome-resume-demo)
+#### [DEMO](https://jeffwillette.github.io/react-awesome-resume-demo)
 
 ![react-awesome-resume](./demo.png)
 
