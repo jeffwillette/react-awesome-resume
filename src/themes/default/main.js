@@ -279,7 +279,7 @@ export default class Default extends React.Component {
           <Segment as={Media} at="mobile">
             {Mobile}
           </Segment>
-          <Segment as={Media} at="tablet">
+          <Segment as={Media} greaterThanOrEqual="tablet">
             {Regular}
           </Segment>
         </MediaContextProvider>
