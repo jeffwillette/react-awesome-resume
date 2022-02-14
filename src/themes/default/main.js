@@ -1,33 +1,40 @@
+import { createMedia } from "@artsy/fresnel";
 import {
   Container,
   Icon,
   Image,
   Menu,
-  Responsive,
+  Segment,
   Sidebar,
-} from 'semantic-ui-react';
-import PropTypes from 'prop-types';
-import React from 'react';
-import shortid from 'shortid';
+} from "semantic-ui-react";
+import PropTypes from "prop-types";
+import React from "react";
+import shortid from "shortid";
 
-import { resumeType } from '../../person';
-import Awards from './awards';
-import Basics from './basics';
-import Education from './education';
-import Interests from './interests';
-import Languages from './languages';
-import Publications from './publications';
-import References from './references';
-import Volunteer from './volunteer';
-import Work from './work';
+import { resumeType } from "../../person";
+import Awards from "./awards";
+import Basics from "./basics";
+import Education from "./education";
+import Interests from "./interests";
+import Languages from "./languages";
+import Publications from "./publications";
+import References from "./references";
+import Volunteer from "./volunteer";
+import Work from "./work";
 
-const ResumeMenuItem = ({
-  title,
-  active,
-  element,
-  show,
-  onClick,
-}) => {
+const AppMedia = createMedia({
+  breakpoints: {
+    mobile: 320,
+    tablet: 768,
+    computer: 992,
+    largeScreen: 1200,
+    widescreen: 1920,
+  },
+});
+const mediaStyles = AppMedia.createMediaStyle();
+const { Media, MediaContextProvider } = AppMedia;
+
+const ResumeMenuItem = ({ title, active, element, show, onClick }) => {
   if (!show) {
     return false;
   }
@@ -85,7 +92,7 @@ export default class Default extends React.Component {
 
     this.r = this.props.jsonResume;
 
-    this.state = { activePage: 'avatar', visible: false };
+    this.state = { activePage: "avatar", visible: false };
   }
 
   toggleVisible = () => {
@@ -93,7 +100,7 @@ export default class Default extends React.Component {
   };
 
   empty = (item) => {
-    if (typeof item === 'undefined') {
+    if (typeof item === "undefined") {
       return true;
     }
     return item.length === 0;
@@ -124,7 +131,7 @@ export default class Default extends React.Component {
 
     const MenuItems = [
       {
-        title: 'Avatar',
+        title: "Avatar",
         element: (
           <Image
             src={this.r.basics.picture}
@@ -135,68 +142,64 @@ export default class Default extends React.Component {
         ),
         show: true,
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Avatar',
+        active: this.state.activePage === "Avatar",
       },
       {
-        title: 'Work',
+        title: "Work",
         show: !this.empty(this.r.work),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Work',
+        active: this.state.activePage === "Work",
       },
       {
-        title: 'Education',
+        title: "Education",
         show: !this.empty(this.r.education),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Education',
+        active: this.state.activePage === "Education",
       },
       {
-        title: 'Volunteer',
+        title: "Volunteer",
         show: !this.empty(this.r.volunteer),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Volunteer',
+        active: this.state.activePage === "Volunteer",
       },
       {
-        title: 'Publications',
+        title: "Publications",
         show: !this.empty(this.r.publications),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Publications',
+        active: this.state.activePage === "Publications",
       },
       {
-        title: 'References',
+        title: "References",
         show: !this.empty(this.r.references),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'References',
+        active: this.state.activePage === "References",
       },
       {
-        title: 'Awards',
+        title: "Awards",
         show: !this.empty(this.r.awards),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Awards',
+        active: this.state.activePage === "Awards",
       },
       {
-        title: 'Languages',
+        title: "Languages",
         show: !this.empty(this.r.languages),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Languages',
+        active: this.state.activePage === "Languages",
       },
       {
-        title: 'Interests',
+        title: "Interests",
         show: !this.empty(this.r.interests),
         onClick: this.handleMenuClick,
-        active: this.state.activePage === 'Interests',
+        active: this.state.activePage === "Interests",
       },
     ];
 
-    const Content = (
-      <Container>
-        {content[this.state.activePage]}
-      </Container>
-    );
+    const Content = <Container>{content[this.state.activePage]}</Container>;
 
     const Full = (
       <div>
         <Menu fluid widths={9} fixed="top" stackable>
-          {MenuItems.map(m => (
+          {MenuItems.map((m) => (
             <ResumeMenuItem
               title={m.title}
               element={m.element}
@@ -207,9 +210,7 @@ export default class Default extends React.Component {
             />
           ))}
         </Menu>
-        <div style={{ marginTop: '110px' }}>
-          {Content}
-        </div>
+        <div style={{ marginTop: "110px" }}>{Content}</div>
       </div>
     );
 
@@ -230,8 +231,8 @@ export default class Default extends React.Component {
             vertical
             inverted
           >
-            <div style={{ marginTop: '45px' }}>
-              {MenuItems.map(m => (
+            <div style={{ marginTop: "45px" }}>
+              {MenuItems.map((m) => (
                 <ResumeMenuItem
                   title={m.title}
                   element={m.element}
@@ -243,7 +244,7 @@ export default class Default extends React.Component {
               ))}
             </div>
           </Sidebar>
-          <Sidebar.Pusher style={{ marginTop: '60px' }}>
+          <Sidebar.Pusher style={{ marginTop: "60px" }}>
             {Content}
           </Sidebar.Pusher>
         </Sidebar.Pushable>
@@ -255,7 +256,7 @@ export default class Default extends React.Component {
       Regular = (
         <div>
           <Menu widths={9} secondary>
-            {MenuItems.map(m => (
+            {MenuItems.map((m) => (
               <ResumeMenuItem
                 title={m.title}
                 element={m.element}
@@ -266,19 +267,26 @@ export default class Default extends React.Component {
               />
             ))}
           </Menu>
-          <div>
-            {Content}
-          </div>
+          <div>{Content}</div>
         </div>
       );
     }
 
     return (
       <div>
-        <Responsive {...Responsive.onlyMobile}>{Mobile}</Responsive>
+        <style>{mediaStyles}</style>
+        <MediaContextProvider>
+          <Segment as={Media} at="mobile">
+            {Mobile}
+          </Segment>
+          <Segment as={Media} at="tablet">
+            {Regular}
+          </Segment>
+        </MediaContextProvider>
+        {/*         <Responsive {...Responsive.onlyMobile}>{Mobile}</Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           {Regular}
-        </Responsive>
+        </Responsive> */}
       </div>
     );
   }
