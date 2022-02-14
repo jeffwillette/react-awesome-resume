@@ -5,8 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "build": "webpack -p"
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
   "author": "Jeff Willette",
   "repository": {
@@ -20,18 +20,17 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "css-loader": "^2.1.1",
-    "file-loader": "^3.0.1",
+    "@artsy/fresnel": "^3.3.0",
+    "css-loader": "^6.6.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-markdown": "^4.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^8.0.0",
     "react-router-dom": "^5.0.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0",
-    "shortid": "^2.2.14",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.29.6"
+    "semantic-ui-react": "^2.1.1",
+    "shortid": "^2.2.8",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -42,12 +41,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^16.0.0",
-    "eslint-plugin-class-property": "^1.0.6",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "webpack-cli": "^3.3.0"
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-class-property": "^1.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "file-loader": "^6.2.0",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
